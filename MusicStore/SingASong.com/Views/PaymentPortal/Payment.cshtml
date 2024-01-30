@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            
+        }
+        header {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding:10px;
+        }
+
+        #payment-details {
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+            margin-top:20px;
+        }
+
+            #payment-details div {
+                margin-bottom: 10px;
+            }
+
+        #payment-button {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #45a049;
+            }
+
+        .go-back-btn {
+            position: absolute;
+            top: 110px;
+            left: 30px;
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <a asp-controller="PaymentPortal" asp-action="PaymentMethod" class="go-back-btn">&lt; Go Back</a>
+    <div id="payment-details">
+        <h2>Payment Details</h2>
+
+        <div>
+            <strong>Items in Cart:</strong> <span id="item-count">3</span>
+        </div>
+        <div>
+            <strong>Cart Items:</strong>
+            <ul>
+                <li>Song 1 - Rs.10.00</li>
+                <li>Song 2 - Rs.15.00</li>
+                <li>Song 3 - Rs.20.00</li>
+            </ul>
+        </div>
+        <div>
+            <strong>Original Price:</strong> Rs.<span id="original-price">45.00</span>
+        </div>
+        <div>
+            <strong>Discounted Price:</strong> Rs.<span id="discounted-price">40.00</span>
+        </div>
+        <div>
+            <strong>Discount:</strong> Rs.<span id="discount">5.00</span>
+        </div>
+        <div>
+            <strong>Payment Method:</strong> <span id="payment-method">Credit Card</span>
+        </div>
+
+        <div id="payment-button">
+            <button onclick="redirectToPayment()">Pay: Rs.<span id="total-amount">40.00</span></button>
+        </div>
+    </div>
+    <script>
+        function redirectToPayment() {
+            // Add your payment processing logic here
+
+            // Display alert for successful payment
+            alert('Payment successful!');
+        }
+    </script>
+</body>
+</html>

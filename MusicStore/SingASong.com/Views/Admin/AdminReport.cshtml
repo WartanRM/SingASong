@@ -1,0 +1,65 @@
+﻿<style>
+
+    header {
+        background-color: black;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        position: relative;
+    }
+    .go-back-btn{
+        color:black;
+    }
+</style>
+<div class="container pt-4">
+
+    <a asp-controller="Admin" asp-action="AdminList" class="go-back-btn ">&lt; Go Back</a>
+    <div class="row pt-3">
+        <div class="col-md-4">
+            <select class="form-select" aria-label="Default select example">
+                <option disabled selected>Please Select the Report Type</option>
+                <option value="SubscriptionReport">Subscribers Report</option>
+                <option value="PurchaseReport">Purchase Report</option>
+            </select>
+        </div>
+        <div class="col-md-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Month</th>
+                        <th scope="col">year</th>
+                        <th scope="col">Subscribers Count</th>
+                        <th scope="col">Revenue Generated</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Jan</td>
+                        <td>2024</td>
+                        <td>6</td>
+                        <td>35000</td>
+                    </tr>
+                    <tr>
+                        <td>Dec</td>
+                        <td>2023</td>
+                        <td>6</td>
+                        <td>40000</td>
+                    </tr>
+                    <tr>
+                        <td>Nov</td>
+                        <td>2023</td>
+                        <td>6</td>
+                        <td>45000</td>
+                    </tr>
+                    <tr>
+                        <td>Oct</td>
+                        <td>2023</td>
+                        <td>6</td>
+                        <td>50000</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>

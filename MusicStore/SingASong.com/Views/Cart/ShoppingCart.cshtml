@@ -1,0 +1,193 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; 
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        .go-back-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+        .cart-container {
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+
+            .cart-item img {
+                max-width: 60px;
+                max-height: 60px;
+                margin-right: 10px;
+                border-radius: 5px;
+            }
+
+        .cart-item-info {
+            flex-grow: 1;
+        }
+
+            .cart-item-info h3 {
+                margin: 0;
+                font-size: 1.2em;
+                color: #343a40;
+            }
+
+            .cart-item-info p {
+                margin: 0;
+                color: #868e96;
+                position: relative;
+            }
+
+
+                .cart-item-info p span {
+                    color: #343a40;
+                    font-weight: bold;
+                    margin-left: 5px;
+                    text-decoration: line-through; 
+                }
+
+                .cart-item-info p.discounted {
+                    color: green;
+                }
+
+        .cart-item-actions {
+            text-align: right;
+        }
+
+        .cart-summary {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #343a40;
+            color: white;
+        }
+
+        .cart-actions {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .coupon-section {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .coupon-input {
+            flex-grow: 1;
+            margin-right: 10px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .apply-coupon-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a asp-controller="Home" asp-action="Index" class="go-back-btn">&lt; Go Back</a>
+        <h1>Your Cart</h1>
+    </header>
+
+    <div class="cart-container">
+        <!-- Cart items --><div class="cart-item">
+            <img src="song1.jpg" alt="Song 1">
+            <div class="cart-item-info">
+                <h3>Song Title 1</h3>
+                <p>Original Price: <span>Rs.20.00</span></p>
+                <p class="discounted">Discounted Price: Rs.10.00</p>
+            </div>
+            <div class="cart-item-actions">
+                <button class="btn">Remove</button>
+            </div>
+        </div>
+
+        <div class="cart-item">
+            <img src="song2.jpg" alt="Song 2">
+            <div class="cart-item-info">
+                <h3>Song Title 2</h3>
+                <p>Original Price: <span>Rs.20.00</span></p>
+                <p class="discounted">Discounted Price: Rs.10.00</p>
+            </div>
+            <div class="cart-item-actions">
+                <button class="btn">Remove</button>
+            </div>
+        </div>
+        <!-- End Cart items -->
+        <!-- Cart summary -->
+        <div class="cart-summary">
+            <span>Total Items: 2</span>
+            <span>Total Amount: Rs.20.00</span>
+        </div>
+        <!-- Coupon section -->
+        <div class="coupon-section">
+            <input type="text" class="coupon-input" placeholder="Enter Coupon Code">
+            <button class="apply-coupon-btn">Apply Coupon</button>
+        </div>
+        <!-- End Cart summary -->
+        <!-- Cart actions -->
+        <div class="cart-actions">
+            <a href="#" class="btn">Continue Shopping</a>
+            <a class="btn" asp-controller="PaymentPortal" asp-action="PaymentMethod">Checkout</a>
+        </div>
+        <!-- End Cart actions -->
+    </div>
+</body>
+</html>

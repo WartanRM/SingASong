@@ -1,0 +1,114 @@
+﻿<style>
+    header {
+        background-color: black;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        position: relative;
+    }
+
+    .go-back-btn {
+        position: absolute;
+        top: 110px;
+        left: 30px;
+        text-decoration: none;
+        color: black;
+        font-size: 16px;
+    }
+    .payment-container{
+        padding-top:70px;
+    }
+    .spacepay{
+        padding-top:15px;
+    }
+</style>
+
+<a asp-controller="Cart" asp-action="ShoppingCart" class="go-back-btn">&lt; Go Back</a>
+<div class="payment-container">
+    <h2>Select Payment Mode</h2>
+
+    <div class="payment-options spacepay">
+        <label for="creditCard">
+            <input type="radio" id="creditCard" name="paymentMode" value="creditCard">
+            Credit Card
+        </label>
+        <label for="upi">
+            <input type="radio" id="upi" name="paymentMode" value="upi">
+            UPI
+        </label>
+        <label for="wallet">
+            <input type="radio" id="wallet" name="paymentMode" value="wallet">
+            Wallet
+        </label>
+        <!-- Add more payment options as needed -->
+    </div>
+
+    <form>
+        <div class="form-group" id="creditCardDetails">
+            <label for="cardNumber">Card Number</label>
+            <input type="text" class="form-control" id="cardNumber" placeholder="Enter card number">
+            <label for="nameOnCard">Name on Card</label>
+            <input type="text" class="form-control" id="nameOnCard" placeholder="Enter name on card">
+            <label for="validity">Validity</label>
+            <input type="text" class="form-control" id="validity" placeholder="MM/YY">
+            <label for="cvv">CVV</label>
+            <input type="text" class="form-control" id="cvv" placeholder="Enter CVV">
+        </div>
+
+        <div class="form-group" id="upiDetails">
+            <label for="upiId">UPI ID</label>
+            <input type="text" class="form-control" id="upiId" placeholder="Enter UPI ID">
+        </div>
+
+        <div class="form-group wallet-options" id="walletOptions">
+            <label for="paytm">
+                <input type="radio" id="paytm" name="walletType" value="paytm">
+                Paytm
+            </label>
+            <label for="amazon">
+                <input type="radio" id="amazon" name="walletType" value="amazon">
+                Amazon Wallet
+            </label>
+        </div>
+        <div class="spacepay">
+            <button type="button" class="btn btn-dark" onclick="processPayment()">Proceed to Payment</button>
+        </div>
+        
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script>
+    // Function to toggle visibility of payment details based on the selected payment mode
+    function togglePaymentDetails() {
+        const creditCardDetails = document.getElementById('creditCardDetails');
+        const upiDetails = document.getElementById('upiDetails');
+        const walletOptions = document.getElementById('walletOptions');
+
+        const creditCardOption = document.getElementById('creditCard');
+        const upiOption = document.getElementById('upi');
+        const walletOption = document.getElementById('wallet');
+
+        creditCardDetails.style.display = creditCardOption.checked ? 'block' : 'none';
+        upiDetails.style.display = upiOption.checked ? 'block' : 'none';
+        walletOptions.style.display = walletOption.checked ? 'block' : 'none';
+    }
+
+    // Function to handle payment processing
+    function processPayment() {
+        // Add your payment processing logic here
+        window.location.href = "/PaymentPortal/Payment";
+        
+        //alert('Payment processed successfully!');
+    }
+
+    // Attach the togglePaymentDetails function to the change event of radio buttons
+    const paymentOptions = document.querySelectorAll('input[name="paymentMode"]');
+    paymentOptions.forEach(option => option.addEventListener('change', togglePaymentDetails));
+
+    // Initially hide the additional details
+    togglePaymentDetails();
+</script>

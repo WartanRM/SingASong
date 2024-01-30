@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #song-list {
+            margin: 20px;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background-color: white;
+        }
+
+        .song-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+
+        }
+        
+
+        .icon {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .song-details {
+            flex-grow: 1;
+        }
+
+        .song-details p {
+            margin: 3px 0;
+        }
+        #admin-actions {
+            position: fixed;
+            bottom: 70px;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .selection-options {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .selection-options label {
+            margin-right: 10px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+        }
+        .repo{
+            background-color:black;
+            padding-left:10px;
+            padding-right:10px;
+            
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="repo">
+        <a asp-controller="Home" asp-action="Index" class="go-back-btn text-white"> &lt; Go Back</a>
+        <a asp-controller="Admin" asp-action="AdminReport" class="text-white pr-4" style="text-decoration: underline; float: right;">Generate Reports </a>
+    </div>
+
+    
+    <header>
+        <h1>Welcome, Admin!</h1>
+          
+    </header>
+    
+    
+        
+    <div id="song-list">
+        <h2 style="text-align:center;">Song List</h2>
+        <div class="song-item">
+                <span class="icon">🎵</span>
+                <div class="song-details">
+                    <p><strong>Song Name:</strong> song.Name</p>
+                    <p><strong>Artists:</strong> song.Artists</p>
+                    <p><strong>Album/Movie:</strong> song.AlbumMovie</p>
+                    <p><strong>Upload Time:</strong> song.UploadTime</p>
+                    <p><strong>Length:</strong> song.Length</p>
+                </div>
+                <input type="checkbox" name="selectedSongs" value="song.Id" />
+            </div>
+    </div>
+
+    <div id="admin-actions">
+            <button type="submit" class="btn btn-group1">Delete Selected Songs</button>
+            <button type="submit" class="btn btn-group1">Edit/Update Song</button>
+            <button type="submit" class="btn btn-group1">Add Song</button
+    </div>
+</body>
+</html>
