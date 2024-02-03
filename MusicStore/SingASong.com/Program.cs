@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SingASong.com.Data;
+using SingASong.com.Repository;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace SingASong.com
 {
@@ -19,7 +21,8 @@ namespace SingASong.com
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
-
+          
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

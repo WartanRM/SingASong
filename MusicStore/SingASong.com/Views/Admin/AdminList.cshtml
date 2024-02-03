@@ -1,5 +1,4 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@model IEnumerable<SingASong.com.Models.Track>
 <head>
     <style>
         body {
@@ -99,22 +98,40 @@
         <h1>Welcome, Admin!</h1>
           
     </header>
+ 
     
-    
-        
-    <div id="song-list">
-        <h2 style="text-align:center;">Song List</h2>
-        <div class="song-item">
+                <!--
+                    <div id="song-list">
+                    <h2 style="text-align:center;">Song List</h2>
+                    <div class="song-item">
                 <span class="icon">🎵</span>
-                <div class="song-details">
+                    <div class="song-details">
                     <p><strong>Song Name:</strong> song.Name</p>
                     <p><strong>Artists:</strong> song.Artists</p>
                     <p><strong>Album/Movie:</strong> song.AlbumMovie</p>
                     <p><strong>Upload Time:</strong> song.UploadTime</p>
                     <p><strong>Length:</strong> song.Length</p>
                 </div>
+                
+                
                 <input type="checkbox" name="selectedSongs" value="song.Id" />
             </div>
+                        -->
+            <div id="song-list">
+                <h2 style="text-align:center;">Song List</h2>
+                @foreach (var song in Model)
+                {
+                    <div class="song-item">
+                        <span class="icon">🎵</span>
+                        <p>Title: @song.Title</p>
+                        <p>Artist: @song.Artist</p>
+                        <p>Album: @song.Album</p>
+                        <p>Genre: @song.Genre</p>
+                        <p>Year: @song.Year</p>
+                        <input type="checkbox" style="align-items:right;" name="selectedSongs" value="@song.Id" />
+                    </div>
+                }
+</div>
     </div>
 
     <div id="admin-actions">
@@ -123,4 +140,3 @@
             <button type="submit" class="btn btn-group1">Add Song</button
     </div>
 </body>
-</html>

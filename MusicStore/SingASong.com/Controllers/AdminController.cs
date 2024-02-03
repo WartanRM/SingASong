@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SingASong.com.Models;
+using SingASong.com.Repository;
 
 namespace SingASong.com.Controllers
 {
@@ -6,9 +8,19 @@ namespace SingASong.com.Controllers
     {
         public IActionResult AdminList()
         {
-            return View();
+            SongRepository trackRepository = new SongRepository();
+            List<Track> tracks = trackRepository.GetAllSongs();
+            
+            return View(tracks);
         }
-        public IActionResult AdminReport()
+
+        public IActionResult Details(int id)
+        {
+            SongRepository trackRepository = new SongRepository();
+            Track track = trackRepository.GetSongById(id);
+            return View(track);
+        }
+        public IActionResult AdminReport()  
         {
             return View();
         }
